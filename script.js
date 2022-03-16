@@ -1,3 +1,4 @@
+// A. TUTORIAL OBJECT
 // Cara untuk membuat object di javascript
 // 1.Object Literal
 // PROBLEM : tidak efektif untuk object yang banyak
@@ -31,24 +32,24 @@
 // }
 
 // Cara kedua function declaration 
-const methodMahasiswa = {
-    makan : function(porsi) {
-        this.energi += porsi;
-        console.log(`Halo ${this.nama}, Selamat Makan`)
-    },
+// const methodMahasiswa = {
+//     makan : function(porsi) {
+//         this.energi += porsi;
+//         console.log(`Halo ${this.nama}, Selamat Makan`)
+//     },
 
-    main : function(jam) {
-        this.energi -= jam;
-        console.log(`Halo ${this.nama}, Selamat Bermain`);
-    },
+//     main : function(jam) {
+//         this.energi -= jam;
+//         console.log(`Halo ${this.nama}, Selamat Bermain`);
+//     },
 
-    tidur : function(jam) {
-        this.energi += jam * 2;
-        console.log(`Halo ${this.nama}, Selamat Tidur`);
-    }
-};
+//     tidur : function(jam) {
+//         this.energi += jam * 2;
+//         console.log(`Halo ${this.nama}, Selamat Tidur`);
+//     }
+// };
 
-function Mahasiswa(nama, energi) {
+// function Mahasiswa(nama, energi) {
     // cara 1. PROBLEM : saat kita membuat method baru di object methodMahasiswa kita juga harus memanggil nya di function mahasiswa
     // let mahasiswa = {};
     // mahasiswa.nama = nama;
@@ -58,13 +59,15 @@ function Mahasiswa(nama, energi) {
     // mahasiswa.tidur = methodMahasiswa.tidur;
 
     // cara 2. PROBLEM : cara paling efektif untuk menangani permasalahan cara 1, namun dengan kita membuat method di object methodMahasiswa dan menyambungkan dengan Object.create(methodMahasiswa) ini masih belum terlalu efektif karena kita masih menyambungkan dua object
-    let mahasiswa = Object.create(methodMahasiswa);
+    // let mahasiswa = Object.create(methodMahasiswa);
+    // mahasiswa.nama = nama;
+    // mahasiswa.energi = energi;
 
-    return mahasiswa;
-}
+    // return mahasiswa;
+// }
 
-let guruh = Mahasiswa('Muhamad Guruh',20);
-let deni = Mahasiswa('Deni Afriyan', 15);
+// let guruh = Mahasiswa('Muhamad Guruh',20);
+// let deni = Mahasiswa('Deni Afriyan', 15);
 
 // 3. Constructor Function
 // keyword new
@@ -85,3 +88,15 @@ let deni = Mahasiswa('Deni Afriyan', 15);
 // }
 
 // let guruh = new Mahasiswa("Guruh", 20);
+
+
+
+// B. TUTORIAL PROTOTYPE
+function Mahasiswa(nama, energi){
+    // let mahasiswa = Object.create(methodMahasiswa);
+    
+    this.nama = nama;
+    this.energi = energi;
+
+    return Mahasiswa;
+}
